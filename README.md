@@ -9,8 +9,8 @@ Note: Should be more or less working now, but you may find some bugs. Feel free 
 You will need node.js and electron installed on your machine.
 
 1. Install electron: ```$ npm install -g electron-prebuilt```
-2. Clone the Repo```$ git clone https://github.com/FrankenApps/ElectronApeMemoryGame```
-3. Open the App ```$ electron ElectronApeMemoryGame```
+2. Clone the Repo: ```$ git clone https://github.com/FrankenApps/ElectronApeMemoryGame```
+3. Open the App: ```$ electron ElectronApeMemoryGame```
 
 ## The code
 
