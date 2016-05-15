@@ -4,6 +4,17 @@ This is a little web project with Javascript and Jquery. You must try to remembe
 
 Note: Should be more or less working now, but you may find some bugs. Feel free to report them, so I can fix them.
 
+## Installation
+
+You will need node.js and electron installed on your machine.
+1. Install electron: ```
+$ npm install -g electron-prebuilt
+```
+2. Clone the Repo
+```$ git clone https://github.com/FrankenApps/ElectronApeMemoryGame
+```
+3. Open the App ```$ electron ElectronApeMemoryGame```
+
 ## The code
 
 I know the code does violate some common standards. You can tell me about any mistakes I made, I am still in an early learning stage.

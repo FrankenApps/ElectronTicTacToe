@@ -113,9 +113,17 @@ $(document).ready(function () {
         $('#time_mode_radio').prop('disabled', 'true');
         $('#click_mode_radio').prop('disabled', 'true');
 
-        setTimeout(function(){
-          generateNumbers();
-        }, $('#fade_in_input').val());
+        if(timeMode == false){
+          setTimeout(function(){
+            generateNumbers();
+          }, 0);
+        }
+        else {
+          setTimeout(function(){
+            generateNumbers();
+          }, $('#fade_in_input').val());
+        }
+
 
       }
   }
@@ -169,11 +177,18 @@ function initializeButtons () {
   for (var i = 0; i < buttonNumbers.length; i++) {
     $('#gameButton' + String(usedButtonIndexes[i])).html(buttonNumbers[i]);
   }
+  if(timeMode){
+  for (var c = 0; c < 40; c++) {
+      $('#gameButton' + String(c)).prop('disabled', 'true');
+  }
+}
+else {
   for (var c = 0; c < 40; c++) {
     if (!$('#gameButton' + String(c)).text().trim().length) {
       $('#gameButton' + String(c)).prop('disabled', 'true');
     }
   }
+}
   if(timeMode){
     setTimeout(function(){
       hideDigits();
@@ -185,6 +200,13 @@ function initializeButtons () {
 }
 
 function hideDigits () {
+  // Fix Issue #4
+  for (var c = 0; c < 40; c++) {
+    if ($('#gameButton' + String(c)).text().trim().length) {
+      $('#gameButton' + String(c)).removeAttr('disabled');
+    }
+  }
+
   for (var i = 0; i < buttonNumbers.length; i++) {
     $('#gameButton' + String(usedButtonIndexes[i])).css('background-color', '#ffffff');
   }
@@ -291,10 +313,9 @@ $('#click_mode_radio').removeAttr('disabled');
 }
 
 function restartGame () {
-  for (var f = 0; f < 40; f++) {
-    $('#gameButton' + String(f)).css('background-color', '#000000');
-    $('#gameButton' + String(f)).removeAttr("disabled");
-    $('#gameButton' + String(f)).html('');
+  for (var g = 0; g < 40; g++) {
+    $('#gameButton' + String(g)).css('background-color', '#000000');
+    $('#gameButton' + String(g)).html('');
   }
   clicks = 0;
   startTheGame();
@@ -332,6 +353,14 @@ function lang_en () {
   $('#time_mode_radio').prop('title', 'In time-mode the digits will be auto-hidden after the selected fade-out time.');
   $('#click_mode_radio_label').prop('title', 'In click-mode the digits will be hidden after you clicked the first digit.');
   $('#time_mode_radio_label').prop('title', 'In time-mode the digits will be auto-hidden after the selected fade-out time.');
+
+  //try to fix mobile issue
+  if(isMobile){
+    $('#close_button').css('height', '80px');
+    $('#close_button').css('width', '140px');
+    $('#start_game_button').css('height', '80px');
+    $('#start_game_button').css('width', '140px');
+  }
   saveLang(lang);
 }
 
@@ -359,6 +388,14 @@ function lang_de () {
   $('#time_mode_radio').prop('title', 'Im Zeit-Modus werden die Zahlen nach Ablauf der Ausblendzeit automatisch verdeckt.');
   $('#click_mode_radio_label').prop('title', 'Beim Klick-Modus werden die Zahlen erst nach auswählen der ersten Zahl verdeckt.');
   $('#time_mode_radio_label').prop('title', 'Im Zeit-Modus werden die Zahlen nach Ablauf der Ausblendzeit automatisch verdeckt.');
+
+  //try to fix mobile issue
+  if(isMobile){
+    $('#close_button').css('height', '80px');
+    $('#close_button').css('width', '140px');
+    $('#start_game_button').css('height', '80px');
+    $('#start_game_button').css('width', '140px');
+  }
   saveLang(lang);
 }
 
