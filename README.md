@@ -12,6 +12,8 @@ You will need node.js and electron installed on your machine.
 2. Clone the Repo: ```$ git clone https://github.com/FrankenApps/ElectronApeMemoryGame```
 3. Open the App: ```$ electron ElectronApeMemoryGame```
 
+Note: First Startup takes very long. It may take up to 20s, but after that, the app will launch immediately. So be patient on first startup and do not close the app when you are seeing a blank screen.
+
 ## The code
 
 I know the code does violate some common standards. You can tell me about any mistakes I made, I am still in an early learning stage.
