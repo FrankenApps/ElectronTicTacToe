@@ -1,0 +1,63 @@
+body {
+	background-image: url("res/site_background.png");
+}
+
+.column-left {
+	float: left;
+}
+.column-right {
+	float: left;
+}
+.column-center {
+	display: inline-block;
+}
+.gameDiv {
+	position: absolute;
+	width: 820px;
+	height: 520px;
+	z-index: 15;
+	top: 340px;
+	left: 30%;
+	margin: -100px 0 0 -150px;
+}
+
+/* style the dialog */
+.ui-dialog button.custom { background: #ff0000; }
+.ui-dialog button.custom:active { background: #FCBDD0; }
+.ui-dialog button.yes_option { background: #00ff00; }
+.ui-dialog button.no_option { background: #ff9199; }
+.ui-dialog button.no_option:active { background-color: #0000ff; }
+.ui-dialog button.yes_option:active { background-color: #0000ff; }
+.ui-dialog button.yes_option:hover { background-color: #84DE10; }
+.ui-dialog button.no_option:hover {background-color: #F5B1AE;}
+
+/* style for mobile dialog */
+
+.ui-dialog .ui-dialog-titlebar
+{
+    font-size: 20px;
+}
+.ui-dialog button.custom_mobile { background: #ff0000; font-size: 40px;}
+.ui-dialog button.custom_mobile:active { background: #FCBDD0; }
+.ui-dialog button.yes_option_mobile { background: #00ff00; font-size: 40px;}
+.ui-dialog button.no_option_mobile { background: #ff9199; font-size: 40px;}
+.ui-dialog button.no_option_mobile:active { background-color: #0000ff; }
+.ui-dialog button.yes_option_mobile:active { background-color: #0000ff; }
+
+/* style for language buttons */
+#lang_en {
+    width: 36px;
+    height: 24px;
+    background-image: url("res/uk.gif");
+    background-repeat: no-repeat;
+		margin-top: -15px;
+		margin-right: 8px;
+}
+
+#lang_de {
+    width: 36px;
+    height: 24px;
+    background-image: url("res/germany.gif");
+    background-repeat: no-repeat;
+		margin-top: -15px;
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE HTML5 PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Ape memory Game</title>
+
+        <!-- jquery -->
+        <script src="libs/jquery/jquery.js"></script>
+        <link rel="stylesheet" href="libs/jquery/jquery-ui.css">
+        <!-- bootstrap -->
+        <link rel="stylesheet" href="libs/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="libs/bootstrap/css/bootstrap-theme.min.css">
+        <script src="libs/bootstrap/js/bootstrap.min.js"></script>
+        <!-- JQuery UI -->
+        <script src="libs/jquery-ui-1.11.4/jquery-ui.min.js" integrity="sha256-xNjb53/rY+WmG+4L6tTl9m6PpqknWZvRt0rO1SRnJzw=" crossorigin="anonymous"></script>
+        <script src="libs/jquery-ui-1.11.4/jquery-ui.min.js"></script>
+
+        <script src="game_logic.js"></script>
+        <link rel="stylesheet" type="text/css" href="styles.css">
+    </head>
+    <body>
+      <button id="lang_en" style="float: right;"> </button>
+    	<button id="lang_de" style="float: right;"> </button>
+      <div style="margin-left: 15px">
+        <h3>Settings</h3>
+        <div class="column-left" style="margin-right: 30px">
+          <span id="won_games_label">Won Games: 0</span><br>
+          <div style="margin-top: 3px;">
+            <span id="displayed_numbers_label" >How many Numbers: </span><br>
+          </div>
+          <input type="radio" style="margin-top: 6px" id="click_mode_radio" name="mode" title="In click-mode the digits will be hidden after you clicked the first digit."><label for="click_mode_radio" id="click_mode_radio_label" title="In click-mode the digits will be hidden after you clicked the first digit.">Click-Mode</label></input><br>
+          </div>
+        <div class="column-center">
+          <span id="lost_games_label" style="">Lost Games: 0</span><br>
+          <input id="displayed_numbers_picker" type="number" value="7" min="1" max="9" step="1" style="width: 33px" title="How many digits can you remember?"/><br>
+          <input type="radio" style="" id="time_mode_radio" name="mode" checked="checked" title="In time-mode the digits will be auto-hidden after the selected time."><label for="time_mode_radio" id="time_mode_radio_label" title="In time-mode the digits will be auto-hidden after the selected time.">Time-Mode</label></input><br>
+        </div>
+        <div id="time_mode_settings" style="display: none">
+          <label for="fade_in_input" id="fade_in_input_label">Time for Fade-In: </label><input style="margin-left: 17px" type="text" id="fade_in_input" style="" title="Time for fade-in. This is in order for your eyes to concentrate on the game screen after hitting the start button. Default value should be fine." onkeypress="return isNumber(event)" value="450" /><br />
+          <label for="fade_out_input" id="fade_out_input_label">Time for Fade-Out: </label><input style="margin-left: 5px; margin-top: 3px" type="text" id="fade_out_input" style="" title="Time for fade-out. E.g. how long you can see the numbers until they get hidden.  During this time you can not click any numbers." onkeypress="return isNumber(event)" value="210" />
+        </div>
+        <div>
+          <form action="https://github.com/FrankenApps/ApeMemoryGame" style="display: inline;">
+      				<input type="submit" title="Go back to my Github page." value="Close" id="close_button" style="background-color: #ff0000;  height: 40px; width: 70px">
+  			  </form>
+          <button id="start_game_button" style="background-color: #00ff00;  height: 40px; width: 70px" title="Start the Game.">Start</button>
+        </div>
+        <div style="background-color: #000000; border-width: 10px; border-style: outset; border-color: blue;" class="gameDiv" id="playground">
+
+      </div>
+      </div>
+    </body>
+</html>
