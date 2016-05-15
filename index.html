@@ -41,7 +41,7 @@
           <label for="fade_out_input" id="fade_out_input_label">Time for Fade-Out: </label><input style="margin-left: 5px; margin-top: 3px" type="text" id="fade_out_input" style="" title="Time for fade-out. E.g. how long you can see the numbers until they get hidden.  During this time you can not click any numbers." onkeypress="return isNumber(event)" value="210" />
         </div>
         <div>
-          <form action="https://github.com/FrankenApps/ApeMemoryGame" style="display: inline;">
+          <form onSubmit="close_app()" style="display: inline;">
       				<input type="submit" title="Go back to my Github page." value="Close" id="close_button" style="background-color: #ff0000;  height: 40px; width: 70px">
   			  </form>
           <button id="start_game_button" style="background-color: #00ff00;  height: 40px; width: 70px" title="Start the Game.">Start</button>

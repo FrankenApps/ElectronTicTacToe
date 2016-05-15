@@ -7,6 +7,8 @@ var clicks = 0;
 var wonGames = 0;
 var lostGames = 0;
 
+var remote = require('remote');
+
 $(document).ready(function () {
   // load selected language
   if(localStorage.getItem("lang") != null){
@@ -401,4 +403,10 @@ function lang_de () {
 
 function saveLang(language){
   localStorage.setItem("lang", language);
+}
+
+function close_app () {
+  var window = remote.getCurrentWindow();
+  window.close();
+  console.log("Close It");
 }
