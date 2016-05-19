@@ -8,8 +8,8 @@ I do not recommend this yet, because it currently has a little bug, meanwhile yo
 You will need node.js and electron installed on your machine.
 
 1. Install electron if you haven't already: ```$ npm install -g electron-prebuilt```
-2. Clone the Repo: ```$ git clone https://github.com/FrankenApps/ElectronApeMemoryGame```
-3. Open the App: ```$ electron ElectronApeMemoryGame```
+2. Clone the Repo: ```$ git clone https://github.com/FrankenApps/ElectronTicTacToe```
+3. Open the App: ```$ electron ElectronTicTacToe```
 
 ## The code
 The code is in a very bad condition, at the time when I wrote it I did not know about any standards or how you would express a logic in code correctly, so don't bother reading through it. And have some fun playing the game...
