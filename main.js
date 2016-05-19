@@ -5,11 +5,17 @@ var BrowserWindow = require('browser-window');
 
 var mainWindow = null;
 
-app.on('ready', function() {
-    mainWindow = new BrowserWindow({
-        height: 850,
-        width: 1200
-    });
+// Quit when all windows are closed.
+app.on("window-all-closed", function() {
+  app.quit();
+});
 
-    mainWindow.loadURL('file://' + __dirname + '/index.html');
+app.on("ready", function() {
+  mainWindow = new BrowserWindow({
+    width: 1000,
+    height: 670,
+    icon: __dirname + "/icons/128.png"
+  });
+  mainWindow.loadURL("file://" + __dirname + "/index.html");
+  mainWindow.focus();
 });

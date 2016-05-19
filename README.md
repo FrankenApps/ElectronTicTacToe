@@ -1,30 +1,16 @@
-# ApeMemoryGame
+# TicTacToe
+Simple Web TicTacToe built with html, jquery and js.
 
-This is a little web project with Javascript and Jquery. You must try to remember the Numbers, that are then hidden by the white squares. Your task is to remember where each number was and click on the corresponding square. You can look up the score of chimpanzees in that game and try to beat them.
-
-Note: Should be more or less working now, but you may find some bugs. Feel free to report them, so I can fix them.
-
-## Installation
-
-You will need node.js and electron installed on your machine.
-
-1. Install electron if you haven't already: ```$ npm install -g electron-prebuilt```
-2. Clone the Repo: ```$ git clone https://github.com/FrankenApps/ElectronApeMemoryGame```
-3. Open the App: ```$ electron ElectronApeMemoryGame```
+You can see the working page here:http://frankenapps.github.io/TicTacToe/
 
 ## The code
+The code is in a very bad condition, at the time when I wrote it I did not know about any standards or how you would express a logic in code correctly, so don't bother reading through it. And have some fun playing the game...
 
-I know the code does violate some common standards. You can tell me about any mistakes I made, I am still in an early learning stage.
+## How to play
+There are 3 options:
 
-## The idea
+1. Two humans play against each other. That's simple: Select your color, name and who wants to start, and then click the fields alternately, until you get the message that one of you has won, or that there is a draw.
 
-Scientists at the university of kyoto created this as an experiment to test the cognitive skills of chimpanzees. When you search on YouTube you can find a video like "Chimp Beats Human", where you can see chimpanzees playing this game.
+2. Human against Computer. Tick one of the checkboxes for Computer and then select if you, or the Computer should start. Of course you may change the colors and names, too.
 
-## The average score of humans and chimps
-
-Here is the average score of humans and chimpanzees in this game, when played with 5 hidden digits (values are approximate, because I made the plot myself):
-![alt text][logo]
-[logo]:  http://s32.postimg.org/9fa1y21j9/chart.png "Chart not interactive"
-
-You can also find the interactive version of that plot here:
-[Human vs Chimp Plot](https://www.meta-chart.com/share/chimp-vs-human-approximate-values-2 "interactive version")
+3. Computer vs Computer. Tick both of the checkboxes and change all the other settings if you wish to, and then hit the start game button, in order to see which computer wins. Of course the Computer who starts all the time will have a higher quota than the other one.

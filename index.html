@@ -1,54 +1,109 @@
-<!DOCTYPE HTML5 PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>Ape memory Game</title>
+        <title>Tic Tac Toe</title>
+        <script src="http://code.jquery.com/jquery-1.9.0.js"></script>
+        <script src="Javascript.js"></script>
+        <script src="jscolor.js"></script>
 
-        <!-- jquery -->
-        <script src="libs/jquery/jquery.js"></script>
-        <link rel="stylesheet" href="libs/jquery/jquery-ui.css">
-        <!-- bootstrap -->
-        <link rel="stylesheet" href="libs/bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" href="libs/bootstrap/css/bootstrap-theme.min.css">
-        <script src="libs/bootstrap/js/bootstrap.min.js"></script>
-        <!-- JQuery UI -->
-        <script src="libs/jquery-ui-1.11.4/jquery-ui.min.js" integrity="sha256-xNjb53/rY+WmG+4L6tTl9m6PpqknWZvRt0rO1SRnJzw=" crossorigin="anonymous"></script>
-        <script src="libs/jquery-ui-1.11.4/jquery-ui.min.js"></script>
+        <style>
+        	.column-left{ float: left; }
+			.column-right{ float: left;}
+			.column-center{ display: inline-block;}
+			body{
+   min-width:310px;
+   width: auto !important;
+   width:1000px;
+}
 
-        <script src="game_logic.js"></script>
-        <link rel="stylesheet" type="text/css" href="styles.css">
+#lang_en {
+    width: 36px;
+    height: 24px;
+    background-image: url("res/uk.gif");
+    background-repeat: no-repeat;
+}
+
+#lang_de {
+    width: 36px;
+    height: 24px;
+    background-image: url("res/germany.gif");
+    background-repeat: no-repeat;
+}
+        </style>
     </head>
     <body>
-      <button id="lang_en" style="float: right;"> </button>
-    	<button id="lang_de" style="float: right;"> </button>
-      <div style="margin-left: 15px">
-        <h3>Settings</h3>
-        <div class="column-left" style="margin-right: 30px">
-          <span id="won_games_label">Won Games: 0</span><br>
-          <div style="margin-top: 3px;">
-            <span id="displayed_numbers_label" >How many Numbers: </span><br>
-          </div>
-          <input type="radio" style="margin-top: 6px" id="click_mode_radio" name="mode" title="In click-mode the digits will be hidden after you clicked the first digit."><label for="click_mode_radio" id="click_mode_radio_label" title="In click-mode the digits will be hidden after you clicked the first digit.">Click-Mode</label></input><br>
-          </div>
-        <div class="column-center">
-          <span id="lost_games_label" style="">Lost Games: 0</span><br>
-          <input id="displayed_numbers_picker" type="number" value="7" min="1" max="9" step="1" style="width: 33px" title="How many digits can you remember?"/><br>
-          <input type="radio" style="" id="time_mode_radio" name="mode" checked="checked" title="In time-mode the digits will be auto-hidden after the selected time."><label for="time_mode_radio" id="time_mode_radio_label" title="In time-mode the digits will be auto-hidden after the selected time.">Time-Mode</label></input><br>
-        </div>
-        <div id="time_mode_settings" style="display: none">
-          <label for="fade_in_input" id="fade_in_input_label">Time for Fade-In: </label><input style="margin-left: 17px" type="text" id="fade_in_input" style="" title="Time for fade-in. This is in order for your eyes to concentrate on the game screen after hitting the start button. Default value should be fine." onkeypress="return isNumber(event)" value="450" /><br />
-          <label for="fade_out_input" id="fade_out_input_label">Time for Fade-Out: </label><input style="margin-left: 5px; margin-top: 3px" type="text" id="fade_out_input" style="" title="Time for fade-out. E.g. how long you can see the numbers until they get hidden.  During this time you can not click any numbers." onkeypress="return isNumber(event)" value="210" />
-        </div>
-        <div>
-          <form onSubmit="close_app()" style="display: inline;">
-      				<input type="submit" title="Go back to my Github page." value="Close" id="close_button" style="background-color: #ff0000;  height: 40px; width: 70px">
-  			  </form>
-          <button id="start_game_button" style="background-color: #00ff00;  height: 40px; width: 70px" title="Start the Game.">Start</button>
-        </div>
-        <div style="background-color: #000000; border-width: 10px; border-style: outset; border-color: blue;" class="gameDiv" id="playground">
+	<button id="lang_en" onclick="lang_en()" style="float: right;"> </button>
+	<button id="lang_de" onclick="lang_de()" style="float: right;"> </button>
+	<div class="column-left">
+	<div class="container" style="margin-left: 7px;">
+	<h1>Tic Tac Toe</h1>
+		<div class="container" id="einstellungen" style="margin-bottom: 9px">
+			<div class="column-center" style="margin-left: 25px">
+				<input type="radio" id="radio2" value="Starten" name="starter" /><label for="radio2">Beginner</label><br>
+				<input type="checkbox" id="computer2" value="Computer?" ><label for="computer2">Computer</label><br>
+				<input name="color2" type="hidden" id="color_value" value="FF0000">
+				<span id="farbe2">Farbe: </span><button class="jscolor {valueElement:null,value:'FF0000'}" id="color2" style="width: 35px; height: 35px; background: #FF0000; margin-bottom: 5px"></button><br>
+        <span id="symbol2Label" style="margin-bottom: 5px">Symbol: </span> <input type="text" id="symbol2" value="O" style="width: 72px; margin-bottom: 5px" /><br>
+				<span id="name2Label">Name: </span><input type="text" id="name2" value="Spieler 2" style="width: 84px" >
+			</div>
+			<div class="column-left">
+				<input type="radio" id="radio1" value="Starten" name="starter" checked="checked"/><label for="radio1">Beginner</label><br>
+				<input type="checkbox" id="computer1" value="Computer?" ><label for="computer1">Computer</label><br>
+				<input name="color1" type="hidden" id="color_value" value="0000FF">
+				<span id="farbe1">Farbe: </span> <button class="jscolor {valueElement:null,value:'0000FF'}" id="color1" style="width: 35px; height: 35px; background: #FF0000; margin-bottom: 5px"></button><br>
+          <span id="symbol1Label" style="margin-bottom: 5px">Symbol: </span> <input type="text" id="symbol1" value="X" style="width: 72px; margin-bottom: 5px" /><br>
+				<span id="name1Label">Name: </span> <input type="text" id="name1" value="Spieler 1" style="width: 84px" /></div>
+		</div>
 
-      </div>
-      </div>
+		<div id="startGame" style="height: 35px; width: 120px;  margin-bottom: 8px; display: none">
+		<button id="gameStart" onclick="computerBeginnt()" style="background-color: #00df00; height: 35px; width: 120px;"><label for="gameStart" id="startGameLabel" style="font-size: 14px"><font id="startGameFont" color="#000000">Spiel starten<font></font></label></button>
+		</div>
+
+		<div class="container" id="spiel">
+        <div class="container">
+			<div class="column-center"><button id="1" style="width: 100px; height: 100px"></button></div>
+			<div class="column-left"><button id="2" style="width: 100px; height: 100px"></button></div>
+			<div class="column-right"><button id="3" style="width: 100px; height: 100px"></button></div>
+		</div>
+		<div class="container">
+			<div class="column-center"><button id="4" style="width: 100px; height: 100px"></button></div>
+			<div class="column-left"><button id="5" style="width: 100px; height: 100px"></button></div>
+			<div class="column-right"><button id="6" style="width: 100px; height: 100px"></button></div>
+		</div>
+		<div class="container">
+			<div class="column-center"><button id="7" style="width: 100px; height: 100px"></button></div>
+			<div class="column-left"><button id="8" style="width: 100px; height: 100px"></button></div>
+			<div class="column-right"><button id="9" style="width: 100px; height: 100px"></button></div>
+		</div>
+		</div>
+		<p>
+
+		<div class="container" id="controls">
+			<div style="float: right">
+				<form onsubmit="close_app()">
+    				<div style="float: right; margin-right: 0px"><input type="submit" value="Beenden" id="close" style="background-color: #ff0000;  height: 50px;"></div>
+			</form>
+		</div>
+			<div class="column-center"><button id="reset" onclick="resetScores()" style="background-color: #0000ff; height: 50px;"><label style="font-size: 14px;"><font id="labelReset" color="#ffffff">Ergebnisse Zurücksetzten</font></label></button></div>
+			<div class="column-left"><button id="restart" style="background-color: #00ff00; height: 50px;" onclick="restartIt()">Neustart</button></div>
+		</div>
+		</div>
+	</div>
+	<div class="column-center" style="margin-left: 20px; margin-top: 56px">
+		<div class="column-left">
+		<span id="SpielerLabel1"><strong>Spieler 1</strong></span><br>
+		<span id="SiegeLabel1">Siege: 0</span><br>
+		<span id="UnentschiedenLabel1">Unentschieden: 0</span><br>
+		<span id="RateLabel1">Rate: 0%</span>
+		</div>
+		<div class="column-center" style="margin-left: 50px">
+		<span id="SpielerLabel2"><strong>Spieler 2</strong></span><br>
+		<span id="SiegeLabel2">Siege: 0</span><br>
+		<span id="UnentschiedenLabel2">Unentschieden: 0</span><br>
+		<span id="RateLabel2">Rate: 0%</span>
+		</div>
+	</div>
     </body>
 </html>
