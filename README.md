@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # TicTacToe
 Simple Web TicTacToe built with html, jquery and js.
 
@@ -14,3 +15,6 @@ There are 3 options:
 2. Human against Computer. Tick one of the checkboxes for Computer and then select if you, or the Computer should start. Of course you may change the colors and names, too.
 
 3. Computer vs Computer. Tick both of the checkboxes and change all the other settings if you wish to, and then hit the start game button, in order to see which computer wins. Of course the Computer who starts all the time will have a higher quota than the other one.
+=======
+# ElectronTicTacToe
+>>>>>>> dd1035e908b6c56a5a6aa6167e9ffd75b4a42b2c
